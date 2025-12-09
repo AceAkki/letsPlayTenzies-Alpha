@@ -1,0 +1,42 @@
+.main-section {
+    padding-top: var(--header-size);
+    margin: 0 2rem;
+}
+
+.main-section form {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.main-section input {
+    border: 1px solid;
+    border-radius: 16px;
+    padding: 0.5rem;
+}
+
+.main-section button {
+    border-radius: 20px;
+    padding: 0.5rem 0.8rem;
+    outline: none;
+}
+
+.tenzies-game {
+    margin: 2vw 5vw;
+}
+
+.dice-wrap {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 2rem 5rem;
+}
+
+.dice-wrap
+.die-btn {
+    outline: none;
+    border: 1px solid;
+    padding: 2rem;
+    font-size: 1.4rem;
+}

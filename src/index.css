@@ -1,0 +1,15 @@
+:root {
+  --header-size : 0;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #161515e6;
+  font-family: "Bitcount Prop Single", system-ui;
+}
