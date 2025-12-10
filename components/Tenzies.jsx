@@ -14,6 +14,10 @@ export default function Tenzies (props) {
             <div className="dice-wrap">
                 {props.elemArr}
             </div>
+
+            <button onClick={props.rollBtn}>
+                {props.gameStatus? "New Game" : "Roll"}
+            </button>
          </section>
         </>
     )

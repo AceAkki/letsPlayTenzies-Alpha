@@ -10,7 +10,7 @@ import Tenzies from '../components/Tenzies'
 import Die from '../components/Die'
 
 function App() {
-  let [username, setUserName] = useState("Test");
+  let [username, setUserName] = useState("");
   let [dice, setDice] = useState(() => randomNumArr ())
 
   function submitName(formData) {
@@ -19,18 +19,29 @@ function App() {
   }
 
   function randomNumArr () {
-      let randomNums = Array(10).fill(0).map(num => Math.floor(Math.random() * 9));
+      let randomNums = Array(10).fill(0).map(num => randomNum() );
       return randomNums.map(num => { 
         return {value:num, isHeld:false, id:nanoid()}
       })
   }
 
+  function randomNum () {
+    return Math.floor(Math.random() * 9)
+  }
+
+  function rollDice(){
+    setDice(oldDice => oldDice.map(die => (die.isHeld) ? die : {...die, value:randomNum()}))
+  }
+
+  function holdDie(id){
+    setDice(oldDice => oldDice.map(die => (id === die.id) ? {...die, isHeld:!die.isHeld} : die))
+  }
+
   let diceElems = dice.map(obj => {
     return (
-    <Die key={obj.id} value={obj.value} isHeld={obj.isHeld}/>
-  )
-  })
-  console.log(diceElems)
+    <Die key={obj.id} value={obj.value} isHeld={obj.isHeld} holdDie={() => holdDie(obj.id)}/>
+  )})
+
   
   useEffect(() => {
     let headerSize = document.querySelector("header").getBoundingClientRect().height;
@@ -38,11 +49,14 @@ function App() {
     root.style.setProperty("--header-size", `${headerSize + 50}px`);
   }, [])
 
+  let gameWon = (dice.every(die => die.isHeld) && dice.every(die => die.value === dice[0].value))
+
   return (
     <>
      <Header name={username}/>
      <section className='main-section'>
-      {(username === "") ? <Form submit={submitName}/> : <Tenzies elemArr={diceElems} />}
+      {(username === "") ? <Form submit={submitName}/> : 
+          <Tenzies elemArr={diceElems} rollBtn={rollDice} gameStatus={gameWon}/>}
 
      </section>
     </>
