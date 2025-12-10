@@ -30,6 +30,7 @@ function App() {
   }
 
   function rollDice(){
+    gameWon ? setDice(randomNumArr()) :
     setDice(oldDice => oldDice.map(die => (die.isHeld) ? die : {...die, value:randomNum()}))
   }
 
