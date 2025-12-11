@@ -1,4 +1,8 @@
 :root {
+  --clr-primary: #48292f88;
+  --clr-secondary:#d4a1b1;
+  --clr-secondary-light:#fad9ea;
+  --clr-light:#f0ebf1;
   --header-size : 0;
 }
 

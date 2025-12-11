@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { useWindowSize } from 'react-use'
+import Confetti from 'react-confetti'
 import { nanoid } from 'nanoid'
 
 import './App.css'
@@ -11,7 +13,9 @@ import Die from '../components/Die'
 
 function App() {
   let [username, setUserName] = useState("");
-  let [dice, setDice] = useState(() => randomNumArr ())
+  let [dice, setDice] = useState(() => randomNumArr ());
+  let [rollCount, setCount] = useState(0)
+  const { width, height } = useWindowSize()
 
   function submitName(formData) {
     let name = formData.get("username");
@@ -31,7 +35,8 @@ function App() {
 
   function rollDice(){
     gameWon ? setDice(randomNumArr()) :
-    setDice(oldDice => oldDice.map(die => (die.isHeld) ? die : {...die, value:randomNum()}))
+    setDice(oldDice => oldDice.map(die => (die.isHeld) ? die : {...die, value:randomNum()}));
+    setCount(oldCount => oldCount + 1);
   }
 
   function holdDie(id){
@@ -54,10 +59,16 @@ function App() {
 
   return (
     <>
+    {gameWon ? <Confetti
+      width={width}
+      height={height}
+    /> : null }
+
+    
      <Header name={username}/>
      <section className='main-section'>
       {(username === "") ? <Form submit={submitName}/> : 
-          <Tenzies elemArr={diceElems} rollBtn={rollDice} gameStatus={gameWon}/>}
+          <Tenzies elemArr={diceElems} rollBtn={rollDice} gameStatus={gameWon} name={username} currentCount={rollCount}/>}
 
      </section>
     </>

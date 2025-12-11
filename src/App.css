@@ -1,6 +1,6 @@
 .main-section {
   padding-top: var(--header-size);
-  margin: 0 1rem;
+  margin: 0 1rem 3rem;
   display: flex;
 }
 
@@ -22,12 +22,14 @@
   padding: 0.5rem;
 }
 
-.main-section button {
+.main-section .form-btn {
   border-radius: 20px;
   padding: 0.5rem 0.8rem;
   outline: none;
   outline: none;
-  border: 1px solid;
+  border: 1px solid var(--clr-secondary);
+  background: var(--clr-secondary);
+  color: var(--clr-light);
   font-size: 1rem;
 }
 
@@ -46,8 +48,10 @@
 .tenzies-game .roll-btn {
   outline: none;
   border: 1px solid;
+  border-radius: 20px;
   padding: 1rem 2rem;
   font-size: 1.4rem;
+  background-color:var(--clr-secondary-light);
 }
 
 .dice-wrap {
@@ -61,6 +65,7 @@
 .dice-wrap .die-btn {
   outline: none;
   border: 1px solid black;
+  border-radius: 20px;
   padding: 2rem;
   background: rgba(245, 245, 220, 0.4);
   font-family: "Bitcount Prop Single", system-ui;

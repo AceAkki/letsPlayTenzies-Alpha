@@ -7,7 +7,7 @@ export default function Form (props) {
                 id="username"
                 placeholder="Type Username"
             />
-            <button>Submit</button>
+            <button className="form-btn">Submit</button>
         </form>
     )
 }

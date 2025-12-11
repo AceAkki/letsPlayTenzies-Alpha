@@ -4,9 +4,9 @@ import logo from "../src/assets/logo2.png"
 export default function Header (props) {
     return (
         <header>
-            <div className="logo-wrap">
+            {/* <div className="logo-wrap">
                 <img src={logo} alt="logo" />
-            </div>
+            </div> */}
 
             <div>
                 <h2 className="gameTitle">
@@ -16,7 +16,7 @@ export default function Header (props) {
 
             <div>
                 <h5 className="userName">
-                    {props.name !== "" ? props.name : "Player"}
+                    {props.name !== "" ? props.name : null}
                 </h5>
 
             </div>
