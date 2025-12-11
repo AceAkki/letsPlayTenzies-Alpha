@@ -51,7 +51,7 @@
   border-radius: 20px;
   padding: 1rem 2rem;
   font-size: 1.4rem;
-  background-color:var(--clr-secondary-light);
+  background-color: var(--clr-secondary-light);
 }
 
 .dice-wrap {
@@ -73,6 +73,10 @@
   font-weight: 600;
 }
 
+.stop-watch {
+  font-size: 1.5rem;
+}
+
 @media screen and (min-width: 1080px) {
   .main-section {
     margin: 0 2rem;
@@ -88,5 +92,9 @@
   }
   .tenzies-game .roll-btn {
     align-self: center;
+  }
+
+  .stop-watch {
+    font-size: 2.5rem;
   }
 }

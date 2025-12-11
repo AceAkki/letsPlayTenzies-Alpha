@@ -24,6 +24,7 @@ export default function Tenzies (props) {
             </button>
 
             <strong>Current Count : {props.currentCount}</strong>
+            {props.elem}
 
             {props.gameStatus ? <p>Cogratulations for winning the game {props.name} in {props.currentCount}.</p> :null }
          </section>
