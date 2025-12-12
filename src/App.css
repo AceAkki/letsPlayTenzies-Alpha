@@ -31,6 +31,7 @@
   background: var(--clr-secondary);
   color: var(--clr-light);
   font-size: 1rem;
+  cursor: pointer;
 }
 
 .tenzies-game {
@@ -43,15 +44,6 @@
   backdrop-filter: blur(10px);
   border-radius: 1rem;
   padding: 1.5rem;
-}
-
-.tenzies-game .roll-btn {
-  outline: none;
-  border: 1px solid;
-  border-radius: 20px;
-  padding: 1rem 2rem;
-  font-size: 1.4rem;
-  background-color: var(--clr-secondary-light);
 }
 
 .dice-wrap {
@@ -71,6 +63,17 @@
   font-family: "Bitcount Prop Single", system-ui;
   font-size: 1.4rem;
   font-weight: 600;
+  cursor: pointer;
+}
+
+.tenzies-game .roll-btn {
+  outline: none;
+  border: 1px solid;
+  border-radius: 20px;
+  padding: 1rem 5rem;
+  font-size: 1.4rem;
+  background-color: var(--clr-secondary-light);
+  cursor: pointer;
 }
 
 .stop-watch {

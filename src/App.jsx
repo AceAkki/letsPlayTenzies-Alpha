@@ -36,6 +36,12 @@ function App() {
     start();
   }
 
+  function logOut(){
+    setUserName("");
+    setCount(0);
+    reset();
+  }
+
   function startTimer(){
     return (
       <div className="stop-watch">
@@ -110,7 +116,7 @@ function App() {
     <>
       { gameWon ? <Confetti width={width} height={height} />  : null}
 
-      <Header name={username} />
+      <Header name={username} logoutUser={logOut}/>
       <section className="main-section">
         {username === "" ? (
           <Form submit={submitName} />
