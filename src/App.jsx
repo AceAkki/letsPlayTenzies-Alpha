@@ -28,11 +28,21 @@ function App() {
     start,
     pause,
     reset,
-  } = useStopwatch({ autoStart: true, interval: 20 });
+  } = useStopwatch({ autoStart: false, interval: 20 });
 
   function submitName(formData) {
     let name = formData.get("username");
     setUserName(name);
+    start();
+  }
+
+  function startTimer(){
+    return (
+      <div className="stop-watch">
+        <span>{days}</span>:<span>{hours}</span>:<span>{minutes}</span>:
+        <span>{seconds}</span>:<span>{milliseconds}</span>
+      </div>
+    )
   }
 
   function randomNumArr() {
@@ -111,12 +121,7 @@ function App() {
             gameStatus={gameWon}
             name={username}
             currentCount={rollCount}
-            elem={
-              <div className="stop-watch">
-                <span>{days}</span>:<span>{hours}</span>:<span>{minutes}</span>:
-                <span>{seconds}</span>:<span>{milliseconds}</span>
-              </div>
-            }
+            elem={startTimer()}
           />
         )}
       </section>
