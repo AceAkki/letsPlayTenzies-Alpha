@@ -38,6 +38,7 @@ function App() {
 
   function logOut(){
     setUserName("");
+    setDice(randomNumArr());
     setCount(0);
     reset();
   }
@@ -52,9 +53,7 @@ function App() {
   }
 
   function randomNumArr() {
-    let randomNums = Array(10)
-      .fill(0)
-      .map((num) => randomNum());
+    let randomNums = Array(10).fill(0).map((num) => randomNum());
     return randomNums.map((num) => {
       return { value: num, isHeld: false, id: nanoid() };
     });
@@ -99,16 +98,12 @@ function App() {
   });
 
   useEffect(() => {
-    let headerSize = document
-      .querySelector("header")
-      .getBoundingClientRect().height;
+    let headerSize = document.querySelector("header").getBoundingClientRect().height;
     const root = document.documentElement;
     root.style.setProperty("--header-size", `${headerSize + 50}px`);
   }, []);
 
-  let gameWon =
-    dice.every((die) => die.isHeld) &&
-    dice.every((die) => die.value === dice[0].value);
+  let gameWon = dice.every((die) => die.isHeld) && dice.every((die) => die.value === dice[0].value);
 
   if (gameWon) pause();
 
